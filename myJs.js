@@ -40,11 +40,13 @@ function resetSettings(e) {
     document.getElementById("search-font").value = "";
 
     if (currentColors != DEFAULT_COLORS) {
+        currentColors = DEFAULT_COLORS;
         document.body.classList.toggle("dark-mode");
         document.documentElement.setAttribute('data-theme', 'light');
     }
 
     if (currentLayout != DEFAULT_LAYOUT) {
+        currentLayout = DEFAULT_LAYOUT;
         document.documentElement.setAttribute('layout', DEFAULT_LAYOUT);
     }
 

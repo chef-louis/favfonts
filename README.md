@@ -2,22 +2,20 @@
 
 ## Overview ##
 
-My name is Louis and I'm looking to develop my full-stack skills over time for an eventual career shift. Thanks to everyone in this community and I'm looking forward to the learning journey.
+**Author**
 Github: @chef-louis
 Discord: louis.code#9119
 
+This is my clone of the Favorite Fonts app to serve as my Tier 1 Solo Project. The app replicates any text that is typed into the "Sample Text" input field and replicates that across 10 font cards with variously pre-defined fonts. Using various buttons in the major navigation bar, the user is able to modify the font size, toggle between dark/light mode, change the font card layout to grid or list and finally reset the interface back to the default settings.
+
+Some elements that are not yet implemented:
+- Minor nav within Header (ie. Logo, Catalog, Featured, Articles, About) does not take you anywhere
+- Search field accepts input but does not do anything with that information
+- The "Add button" within font cards does nothing
+
+The project leverages HTML, Javascript and CSS to compose the various elements above together and the project is deployed at the following URL for viewing:
+
 ## Project Details ## 
-
-**Author Notes**
-
-Fonts are hardcoded into the CSS file.
-
-Some elements that are not implemented:
-- Minor nav within Header does not take you anywhere
-- Search field
-- Add button within font cards
-
-Other than that, see the checklist of requirements below:
 
 **Requirements**
 
