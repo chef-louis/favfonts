@@ -42,7 +42,7 @@ function resetSettings(e) {
     if (currentColors != DEFAULT_COLORS) {
         currentColors = DEFAULT_COLORS;
         document.body.classList.toggle("dark-mode");
-        document.documentElement.setAttribute('data-theme', 'light');
+        document.documentElement.setAttribute('data-theme', DEFAULT_COLORS);
     }
 
     if (currentLayout != DEFAULT_LAYOUT) {
@@ -56,7 +56,6 @@ function resetSettings(e) {
     }
 }
 
-document.body.classList.toggle("light-mode");
 var data0 = document.getElementById("text").addEventListener("input", updateText);
 var data1 = document.getElementById("20px").addEventListener("click", updateFontSize);
 var data2 = document.getElementById("24px").addEventListener("click", updateFontSize);

@@ -13,7 +13,7 @@ Some elements that are not yet implemented:
 - Search field accepts input but does not do anything with that information
 - The "Add button" within font cards does nothing
 
-The project leverages HTML, Javascript and CSS to compose the various elements above together and the project is deployed at the following URL for viewing:
+The project leverages HTML, Javascript and CSS to compose the various elements above together and the project is deployed at the following URL for viewing: https://chef-louis.github.io/favfonts/
 
 ## Project Details ## 
 
