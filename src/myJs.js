@@ -7,6 +7,7 @@ let currentLayout = DEFAULT_LAYOUT;
 const textElements = document.getElementsByClassName("dynamic-text");
 const fontElements = document.getElementsByClassName("font-btn");
 const fontSizeDisplay = document.getElementById("display-font-size");
+const goToTopElement = document.getElementById("go-top-button");
 
 const fonts = [
     "roboto",
@@ -92,6 +93,19 @@ function resetSettings(e) {
     }
 }
 
+function scrollCheck() {
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        goToTopElement.style.display = "block";
+      } else {
+        goToTopElement.style.display = "none";
+      }
+}
+
+function goToTop() {
+    document.body.scrollTop = 0; // For Safari
+    document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+}
+
 let data0 = document.getElementById("search-font").addEventListener("input", updateSearch);
 let data1 = document.getElementById("text").addEventListener("input", updateText);
 let data2 = document.getElementById("20px").addEventListener("click", updateFontSize);
@@ -101,5 +115,7 @@ let data5 = document.getElementById("48px").addEventListener("click", updateFont
 let data6 = document.getElementById("dark-light").addEventListener("click", switchDarkLight);
 let data7 = document.getElementById("grid-list").addEventListener("click", switchGridList);
 let data8 = document.getElementById("reset").addEventListener("click", resetSettings);
-
+window.onscroll = function() {
+    scrollCheck();
+}
 

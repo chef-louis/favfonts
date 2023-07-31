@@ -16,13 +16,14 @@ The project leverages HTML, Javascript and CSS to compose the various elements a
 
 ## Project Details ## 
 
-**Requirements**
+**Requirements (Updated for Tier 2)**
 
 *Structure*
 - [X] Header with minor navigation *(Logo and Catalog/Featured/Articles/About link list)*
 - [X] Nav with Major navigation / page-manipulation *(search, custom text, font-size, dark/light mode, grid/list mode, and reset)*
 - [X] Main section to contain the font cards
 - [X] Font cards which display the Font Name, the sample text, and an add button
+- [X] Back-to-top button that allows users to click and scroll back up to the top (there could be up to 959 fonts displayed, so you need this!)
 - [X] Footer section with your developer information
 
 *Style*
@@ -35,14 +36,16 @@ The project leverages HTML, Javascript and CSS to compose the various elements a
 - [X] The sample text should return to the default sample if the input box (type something) no longer has any input *(ex. input == "")*
 - [X] Font size chooser should have at least four sizes and should immediately change the sample text font size in each font card
 - [X] Implement the clickable 'reset' icon on the far right of the major navigation; it should make the page appear as if the user reloaded the page *(do not actually reload the page)*
+- [ ] On load, the page should display fonts sorted by current popularity, as returned by the Google Fonts Developer API (see below)
+- [ ] The search feature should be fully functional and should display matching fonts (it's up to you if you want to do this via a 'submit' or through onchange)
+- [ ] When the search input is cleared (via reset button or manually), the fonts should automaticaly display sorted by poplarity again
 
 *Other*
 - [X] Your repo needs to have a robust README.md
 - [X] Make sure that there are no errors in the developer console before submitting
 
 **Extras (Not Required)**
-
-- [ ] Include a back-to-top button that allows users to scroll to the top once the top of the page is out of view
-- [ ] Make your design fully responsive *(small/large/portrait/landscape, etc.)*
+- [X] Make your design fully responsive *(small/large/portrait/landscape, etc.)*
 - [X] Implement the light/dark mode toggle buttons
 - [X] Implement the change display icon so you can flip between a grid and list layout for the font cards
+- [ ] Make the 'add-font' icon add the font to a list (localHost, Cache API, etc) for front-end persistence; users can then delete the font from the list
