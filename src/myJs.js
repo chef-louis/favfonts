@@ -8,6 +8,38 @@ const textElements = document.getElementsByClassName("dynamic-text");
 const fontElements = document.getElementsByClassName("font-btn");
 const fontSizeDisplay = document.getElementById("display-font-size");
 
+const fonts = [
+    "roboto",
+    "palatino",
+    "helvetica",
+    "open-sans",
+    "sans-serif",
+    "arial",
+    "times-new-roman",
+    "raleway",
+    "cursive",
+    "monospace"
+]
+
+function updateSearch(e) {
+    if (e.target.value !== "") {
+        let text = e.target.value.toLowerCase().replace(' ', '-');
+        for (let i = 0; i < fonts.length; i++) {
+            if (!(fonts[i].includes(text))) {
+                document.getElementById(fonts[i]).style.display = "none";
+            } else if (document.getElementById(fonts[i]).style.display == "none") {
+                document.getElementById(fonts[i]).style.display = "grid";
+            }
+        }
+    } else {
+        for (let i = 0; i < fonts.length; i++) {
+            if (document.getElementById(fonts[i]).style.display == "none") {
+                document.getElementById(fonts[i]).style.display = "grid";
+            }
+        }
+    }
+}
+
 function updateText(e) {
     let text = e.target.value == "" ? DEFAULT_TEXT : e.target.value;
     for (let i = 0; i < textElements.length; i++) {
@@ -39,6 +71,10 @@ function resetSettings(e) {
     document.getElementById("text").value = "";
     document.getElementById("search-font").value = "";
 
+    for (let i = 0; i < fonts.length; i++) {
+        document.getElementById(fonts[i]).style.display = "grid";
+    }
+
     if (currentColors != DEFAULT_COLORS) {
         currentColors = DEFAULT_COLORS;
         document.body.classList.toggle("dark-mode");
@@ -56,13 +92,14 @@ function resetSettings(e) {
     }
 }
 
-let data0 = document.getElementById("text").addEventListener("input", updateText);
-let data1 = document.getElementById("20px").addEventListener("click", updateFontSize);
-let data2 = document.getElementById("24px").addEventListener("click", updateFontSize);
-let data3 = document.getElementById("32px").addEventListener("click", updateFontSize);
-let data4 = document.getElementById("48px").addEventListener("click", updateFontSize);
-let data5 = document.getElementById("dark-light").addEventListener("click", switchDarkLight);
-let data6 = document.getElementById("grid-list").addEventListener("click", switchGridList);
-let data7 = document.getElementById("reset").addEventListener("click", resetSettings);
+let data0 = document.getElementById("search-font").addEventListener("input", updateSearch);
+let data1 = document.getElementById("text").addEventListener("input", updateText);
+let data2 = document.getElementById("20px").addEventListener("click", updateFontSize);
+let data3 = document.getElementById("24px").addEventListener("click", updateFontSize);
+let data4 = document.getElementById("32px").addEventListener("click", updateFontSize);
+let data5 = document.getElementById("48px").addEventListener("click", updateFontSize);
+let data6 = document.getElementById("dark-light").addEventListener("click", switchDarkLight);
+let data7 = document.getElementById("grid-list").addEventListener("click", switchGridList);
+let data8 = document.getElementById("reset").addEventListener("click", resetSettings);
 
 
