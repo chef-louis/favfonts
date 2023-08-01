@@ -4,38 +4,37 @@ const DEFAULT_COLORS = "light";
 let currentColors = DEFAULT_COLORS;
 const DEFAULT_LAYOUT = "grid";
 let currentLayout = DEFAULT_LAYOUT;
+const fontCards = document.getElementById('font-cards');
 const textElements = document.getElementsByClassName("dynamic-text");
 const fontElements = document.getElementsByClassName("font-btn");
 const fontSizeDisplay = document.getElementById("display-font-size");
 const goToTopElement = document.getElementById("go-top-button");
+const DEFAULT_NUM_CARDS = 500;
 
-const fonts = [
-    "roboto",
-    "palatino",
-    "helvetica",
-    "open-sans",
-    "sans-serif",
-    "arial",
-    "times-new-roman",
-    "raleway",
-    "cursive",
-    "monospace"
-]
+function resetFonts() {
+    for (let i = 0; i < popularFonts.length; i++) {
+        const targetElement = document.getElementById('box' + i);
+        targetElement.innerHTML = targetElement.innerHTML.replace('Unknown Font', popularFonts[i]);
+
+        const targetStyle = document.getElementById('font-box' + i);
+        targetStyle.style.fontFamily = popularFonts[i];
+    }
+}
 
 function updateSearch(e) {
     if (e.target.value !== "") {
-        let text = e.target.value.toLowerCase().replace(' ', '-');
-        for (let i = 0; i < fonts.length; i++) {
-            if (!(fonts[i].includes(text))) {
-                document.getElementById(fonts[i]).style.display = "none";
-            } else if (document.getElementById(fonts[i]).style.display == "none") {
-                document.getElementById(fonts[i]).style.display = "grid";
+        let text = e.target.value.toLowerCase();
+        for (let i = 0; i < popularFonts.length; i++) {
+            if (!(popularFonts[i].toLowerCase().includes(text))) {
+                document.getElementById('box' + i).style.display = "none";
+            } else if (document.getElementById('box' + i).style.display == "none") {
+                document.getElementById('box' + i).style.display = "grid";
             }
         }
     } else {
-        for (let i = 0; i < fonts.length; i++) {
-            if (document.getElementById(fonts[i]).style.display == "none") {
-                document.getElementById(fonts[i]).style.display = "grid";
+        for (let i = 0; i < popularFonts.length; i++) {
+            if (document.getElementById('box' + i).style.display == "none") {
+                document.getElementById('box' + i).style.display = "grid";
             }
         }
     }
@@ -72,9 +71,10 @@ function resetSettings(e) {
     document.getElementById("text").value = "";
     document.getElementById("search-font").value = "";
 
-    for (let i = 0; i < fonts.length; i++) {
-        document.getElementById(fonts[i]).style.display = "grid";
+    for (let i = 0; i < popularFonts.length; i++) {
+        document.getElementById('box' + i).style.display = "grid";
     }
+    // resetFonts();
 
     if (currentColors != DEFAULT_COLORS) {
         currentColors = DEFAULT_COLORS;
@@ -105,6 +105,34 @@ function goToTop() {
     document.body.scrollTop = 0; // For Safari
     document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
 }
+
+function generateCard(num) {
+    return '' +
+        '<div class="font-box" id="box' + num + '">' +
+            'Unknown Font' +
+            '<button id="add"><i class="fa fa-plus"></i></button>' +
+            '<div class="dynamic-text" id="font-box' + num + '">' +
+            'Sample Text' +
+            '</div>' +
+        '</div>';
+}
+
+for (let k = 0; k < DEFAULT_NUM_CARDS; k++) {
+    fontCards.innerHTML += generateCard(k);    
+}
+
+const GOOG_API_KEY = "AIzaSyCm6lSChPfn3UVnNdPttCL8iO2rwJbsoHo";
+const URL = `https://webfonts.googleapis.com/v1/webfonts?key=${GOOG_API_KEY}&sort=popularity`;
+const popularFonts = new Array(DEFAULT_NUM_CARDS);
+fetch(URL, {})
+    .then((response) => response.json())
+    .then((data) => {
+        for (let i = 0; i < popularFonts.length; i++) {
+            popularFonts[i] = data.items[i].family;
+        }
+
+        resetFonts();
+    });
 
 let data0 = document.getElementById("search-font").addEventListener("input", updateSearch);
 let data1 = document.getElementById("text").addEventListener("input", updateText);

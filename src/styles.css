@@ -84,48 +84,8 @@ input {
 
 .dynamic-text {
     font-size: 20px;
-    padding: 40px;
+    padding: 24px;
     text-align: center;
-}
-
-#font-box1 {
-    font-family: "Roboto";
-}
-
-#font-box2 {
-    font-family: "Palatino";
-}
-
-#font-box3 {
-    font-family: "Helvetica";
-}
-
-#font-box4 {
-    font-family: "Open Sans";
-}
-
-#font-box5 {
-    font-family: "Sans Serif";
-}
-
-#font-box6 {
-    font-family: "Arial";
-}
-
-#font-box7 {
-    font-family: "Times New Roman";
-}
-
-#font-box8 {
-    font-family: "Raleway";
-}
-
-#font-box9 {
-    font-family: "Cursive";
-}
-
-#font-box10 {
-    font-family: "Monospace";
 }
 
 button {
