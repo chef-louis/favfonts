@@ -16,13 +16,13 @@ The project leverages HTML, Javascript and CSS to compose the various elements a
 
 ## Project Details ## 
 
-**Requirements (Updated for Tier 2)**
+**Requirements (Updated for Tier 3)**
 
 *Structure*
 - [X] Header with minor navigation *(Logo and Catalog/Featured/Articles/About link list)*
 - [X] Nav with Major navigation / page-manipulation *(search, custom text, font-size, dark/light mode, grid/list mode, and reset)*
 - [X] Main section to contain the font cards
-- [X] Font cards which display the Font Name, the sample text, and an add button
+- [X] Font cards which display the Font Name, the sample text, and an add button (the font creator is not available via the api, so it is not required in tiers 2 or 3)
 - [X] Back-to-top button that allows users to click and scroll back up to the top (there could be up to 959 fonts displayed, so you need this!)
 - [X] Footer section with your developer information
 
@@ -39,6 +39,8 @@ The project leverages HTML, Javascript and CSS to compose the various elements a
 - [X] On load, the page should display fonts sorted by current popularity, as returned by the Google Fonts Developer API (see below)
 - [X] The search feature should be fully functional and should display matching fonts (it's up to you if you want to do this via a 'submit' or through onchange)
 - [X] When the search input is cleared (via reset button or manually), the fonts should automaticaly display sorted by poplarity again
+- [ ] Fonts from the Developer API should be retrieved on the back-end and sent to the client (see below)
+- [ ] StyleSheet requests from the Google Fonts API can be compiled on either the front or the back
 
 *Other*
 - [X] Your repo needs to have a robust README.md
@@ -48,4 +50,5 @@ The project leverages HTML, Javascript and CSS to compose the various elements a
 - [X] Make your design fully responsive *(small/large/portrait/landscape, etc.)*
 - [X] Implement the light/dark mode toggle buttons
 - [X] Implement the change display icon so you can flip between a grid and list layout for the font cards
-- [ ] Make the 'add-font' icon add the font to a list (localHost, Cache API, etc) for front-end persistence; users can then delete the font from the list
+- [ ] User creation and authentication: Add a login button to the page that allows registered users to login, or prompts new users to register. Once a user is authenticated, display somewhere on the page that they are logged in.
+- [ ] Add a favorites feature with back-end persistence: one example of this would be to use cookies to point to the user's favorite list in your database. You'll need to add a "see favorites" button somewhere to toggle between the view of the user's favorite fonts and the searches / popularity sort.
